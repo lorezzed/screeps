@@ -9,13 +9,13 @@ module.exports = (function(){
     }
     
     return data;
+
+    function getCreepEntities(){
+        return config.creepEntities();
+    }
+    
+    function getRoles() {
+        return _.pluck(getCreepEntities(), 'role');
+    }
+
 })();
-
-function getCreepEntities(){
-    return config.creepEntities();
-}
-
-function getRoles() {
-    return _.pluck(getCreepEntities(), 'role');
-}
-

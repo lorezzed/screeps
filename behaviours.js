@@ -1,29 +1,13 @@
 module.exports = (function() {
     
     var data = {
-        creepEntities: creepEntities
-    };
+        guard: guard,
+        harvester: harvester
+    }
     
     return data;
     
-    function creepEntities() {
-        return [
-            {
-                role: 'guard',
-                max: 2,
-                body: [Game.MOVE, Game.ATTACK],
-                behaviour: guardBehaviour
-            },
-            {
-                role: 'harvester',
-                max: 2,
-                body: [Game.MOVE, Game.CARRY, Game.WORK],
-                behaviour: harvesterBehaviour
-            }
-        ];
-    }
-    
-    function guardBehaviour(creep){
+    function guard(creep){
         return function() {
             var targets = creep.room.find(Game.HOSTILE_CREEPS);
     	    if (targets.length) {
@@ -33,7 +17,9 @@ module.exports = (function() {
         }
     }
     
-    function harvesterBehaviour(creep){
+    function harvester(creep){
+        console.log(creep);
+        // return;
         return function() {
             if (creep.energy < creep.energyCapacity) {
     	        var sources = creep.room.find(Game.SOURCES);
@@ -45,5 +31,5 @@ module.exports = (function() {
     	    }
         }
     }
-
+    
 })();
