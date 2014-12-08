@@ -1,5 +1,5 @@
 var creepHelper = require('creepHelper');
-var Creep = require('Creep');
+var Creep = require('creep');
 var ai = require('ai');
 
 var spawn = Game.spawns.Spawn1;
@@ -23,16 +23,16 @@ module.exports = (function(){
         // factory.createCreep('guard');// spam guards
         var newCreep = getName('harvester');
         var creep = Creep.Harvester(newCreep);
-        var buildResult = Game.spawns.Spawn1.createCreep(creep.body, creep.name, {role: creep.role });
+        var buildResult = Game.spawns.Spawn1.createCreep(creep.body, creep.name, { role: creep.role });
         console.log(buildResult);
     }
     
     function createCreep(role){
         if(!roleExists(role))
             return;
-        var model = new _.find(getCreepEntities(), {role: role});
+        var model = new _.find(getCreepEntities(), { role: role });
         var creepName = getName(role);
-        var result = Game.spawns.Spawn1.createCreep(model.body, creepName, {role: role });
+        var result = Game.spawns.Spawn1.createCreep(model.body, creepName, { role: role });
         console.log(result);
     }
     

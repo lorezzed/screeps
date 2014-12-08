@@ -18,8 +18,6 @@ module.exports = (function() {
     }
     
     function harvester(creep){
-        console.log(creep);
-        // return;
         return function() {
             if (creep.energy < creep.energyCapacity) {
     	        var sources = creep.room.find(Game.SOURCES);

@@ -15,31 +15,26 @@ module.exports = (function(){
         harvester.role = 'harvester';
         harvester.max = 2;
         harvester.body = [Game.MOVE, Game.CARRY, Game.WORK];
-        harvester.behaviour = behaviours.harvester;
         
         return harvester;
     }
     
     function Guard(name){
-        
         var guard = CreepAbstract(name);
         
         guard.role = 'guard';
         guard.max = 2;
         guard.body = [Game.MOVE, Game.CARRY, Game.WORK];
-        guard.behaviour = behaviours.guard;
         
         return guard;
     }
     
     function CreepAbstract(name){
-        
         var creep = {
             name: name,
             role: '',
             max: 0,
-            body: [],
-            behaviour: function(){}
+            body: []
         }
         
         return creep;
